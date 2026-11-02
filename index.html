@@ -1,21 +1,31 @@
 <!doctype html>
 <html lang="en">
-	<style>
-  .custom-legend {
-    background: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+<style>
+  #kartta-selite {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 15px;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
     font-family: sans-serif;
     font-size: 13px;
     line-height: 22px;
+    z-index: 1000;
+  }
+  #kartta-selite b {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
   }
   .legend-box {
     width: 15px;
     height: 15px;
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 8px;
     vertical-align: middle;
+    border: 1px solid #ccc;
   }
 </style>
     <head>
@@ -43,23 +53,14 @@
     </style>
         <title></title>
     </head>
-	<script>
-  // Luodaan selitelaatikko
-  var legend = L.control({ position: 'bottomright' });
-
-  legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'custom-legend');
-    div.innerHTML = '<b>Kasvupaikkatyyppi</b><br>' +
-      '<span class="legend-box" style="background:#1a642e"></span>Lehto<br>' +
-      '<span class="legend-box" style="background:#2d9a47"></span>Lehtomainen kangas<br>' +
-      '<span class="legend-box" style="background:#7bc65b"></span>Tuore kangas<br>' +
-      '<span class="legend-box" style="background:#e6d85c"></span>Kuivahko kangas<br>' +
-      '<span class="legend-box" style="background:#e69839"></span>Kuiva kangas';
-    return div;
-  };
-
-  legend.addTo(map);
-</script>
+<div id="kartta-selite">
+  <b>Kasvupaikkatyyppi</b>
+  <div><span class="legend-box" style="background:#1a642e"></span>Lehto</div>
+  <div><span class="legend-box" style="background:#2d9a47"></span>Lehtomainen kangas</div>
+  <div><span class="legend-box" style="background:#7bc65b"></span>Tuore kangas</div>
+  <div><span class="legend-box" style="background:#e6d85c"></span>Kuivahko kangas</div>
+  <div><span class="legend-box" style="background:#e69839"></span>Kuiva kangas</div>
+</div>
     <body>
         <div id="map">
         </div>
